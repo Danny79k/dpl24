@@ -8,6 +8,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var bicicletasAPIRouter = require('./routes/api/bicicletas');
 
 var app = express();
 //#region configuration
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //#region routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/bicicletas', bicicletasAPIRouter); 
 
 app.use(function(req, res, next) {
   next(createError(404));
